@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Sistema</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header id="headerContent" style="display: block;">
+    <img src="assets/logo-branca.png" class="logo">
+    <nav>
+        <ul>
+            <li><a href="#" onclick="mostrarSecao('clientes')"><i class="fa fa-users"></i> Clientes</a></li>
+            <li><a href="#" onclick="mostrarSecao('produtos')"><i class="fa fa-box"></i> Produtos</a></li>
+            <li><a href="#" onclick="mostrarSecao('vendas')"><i class="fa fa-shopping-cart"></i> Vendas</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div id="loginSection" style="display: none">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="login(event)">
+            <label for="loginUsuario">Login:</label>
+            <input type="text" id="loginUsuario" required>
+            <label for="senhaUsuario">Senha:</label>
+            <input type="password" id="senhaUsuario" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <div id="mainContent" style="display: block;">
+        <section id="clientes" class="section">
+            <h2>Gerenciamento de Clientes</h2>
+            <button onclick="toggleClienteForm()">
+                <i class="fa fa-user-plus"></i> Adicionar Cliente
+            </button>
+            <div id="clienteForm" style="display: none;">
+                <label for="nomeCliente">Nome:</label>
+                <input type="text" id="nomeCliente" required>
+                <label for="cpfCliente">CPF:</label>
+                <input type="text" id="cpfCliente" required>
+                <button type="button" onclick="adicionarCliente()">
+                    <i class="fa fa-save"></i> Salvar Cliente
+                </button>
+                <button type="button" onclick="editarCliente()">
+                    <i class="fa fa-edit"></i> Editar Cliente
+                </button>
+            </div>
+            <div id="listaClientes"></div>
+        </section>
+
+        <section id="produtos" class="section" style="display:block;">
+            <h2>Gerenciamento de Produtos</h2>
+            <button onclick="toggleProdutoForm()">
+                <i class="fa fa-plus-square"></i> Adicionar Produto
+            </button>
+            <div id="produtoForm" style="display: none;">
+                <label for="nomeProduto">Nome:</label>
+                <input type="text" id="nomeProduto" required>
+                <label for="valorProduto">Valor Unitário:</label>
+                <input type="number" id="valorProduto" required>
+                <label for="quantidadeProduto">Quantidade:</label>
+                <input type="number" id="quantidadeProduto" required>
+                <button type="button" onclick="adicionarProduto()">
+                    <i class="fa fa-save"></i> Salvar Produto
+                </button>
+                <button type="button" onclick="editarProduto()">
+                    <i class="fa fa-edit"></i> Editar Produto
+                </button>
+            </div>
+            <div id="listaProdutos"></div>
+        </section>
+
+        <section id="vendas" class="section">
+            <h2>Gerenciamento de Vendas</h2>
+            <button type="button" onclick="toggleVendaForm()">
+                <i class="fa fa-cart-plus"></i> Adicionar Venda
+            </button>
+            <div id="vendaForm" style="display: none;">
+                <form>
+                    <label for="clienteVenda">Cliente ID:</label>
+                    <input type="text" id="clienteVenda" required>
+
+                    <label for="produtoVenda">Produto ID:</label>
+                    <input type="text" id="produtoVenda" required>
+
+                    <label for="formaPagamento">Forma de Pagamento:</label>
+                    <input type="text" id="formaPagamento" required>
+
+                    <label for="quantidadeVenda">Quantidade:</label>
+                    <input type="number" id="quantidadeVenda" required>
+
+                    <button type="button" onclick="adicionarVenda()">
+                        <i class="fa fa-save"></i> Salvar Venda
+                    </button>
+                    <button type="button" onclick="cancelarVenda()">
+                        <i class="fa fa-times"></i> Cancelar
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <div id="listaVendas"></div>
+
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
