@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3d358cf-e757-478b-bc25-c4e7f816c360" name="Changes" comment="" />
+    <list default="true" id="a3d358cf-e757-478b-bc25-c4e7f816c360" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/ProjetoPooApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/controllers/ClienteController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/controllers/ProdutoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/controllers/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/controllers/VendaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/models/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/models/Produto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/models/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/models/Venda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/repositories/ClienteRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/repositories/ProdutoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/repositories/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/repositories/VendaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/services/ClienteService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/services/ProdutoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/services/UsuarioService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/services/VendaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/views/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto-poo-alyce-danilo-henrique/target/classes/com/example/ProjetoPOO/views/style.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +41,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alycebarreto&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/POO-ADS-IFPB-CZ/projeto-final-equipe-dan.git&quot;,
+    &quot;accountId&quot;: &quot;78a7f018-fa51-4483-a385-ab1da1734620&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -20,11 +63,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ProjetoPooApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/alyce/Desktop/ProjetoPOO-INTEIRO",
+    "last_opened_file_path": "C:/Users/alyce/Desktop/projeto-final-equipe-dan",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
