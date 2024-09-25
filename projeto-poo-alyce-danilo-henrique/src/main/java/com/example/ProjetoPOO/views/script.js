@@ -71,36 +71,36 @@ function editarCliente() {
     const nome = document.getElementById('nomeCliente').value;
     const cpf = document.getElementById('cpfCliente').value;
 
-    fetch(`http://localhost:8080/clientes/${id}`, {
-        method: 'PUT',
+    fetch(http://localhost:8080/clientes/${id}, {
+    method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome, cpf }),
-    }).then(response => {
-        if (response.ok) {
-            alert("Cliente atualizado com sucesso!");
-            atualizarListaClientes();
-        } else {
-            alert("Erro ao atualizar cliente.");
-        }
-    });
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ nome, cpf }),
+}).then(response => {
+    if (response.ok) {
+        alert("Cliente atualizado com sucesso!");
+        atualizarListaClientes();
+    } else {
+        alert("Erro ao atualizar cliente.");
+    }
+});
 }
 
 // Função para excluir cliente
 function excluirCliente(id) {
     if (confirm("Tem certeza que deseja excluir este cliente?")) {
-        fetch(`http://localhost:8080/clientes/${id}`, {
-            method: 'DELETE',
-        }).then(response => {
-            if (response.ok) {
-                alert("Cliente excluído com sucesso!");
-                atualizarListaClientes();
-            } else {
-                alert("Erro ao excluir cliente.");
-            }
-        });
-    }
+        fetch(http://localhost:8080/clientes/${id}, {
+        method: 'DELETE',
+    }).then(response => {
+        if (response.ok) {
+            alert("Cliente excluído com sucesso!");
+            atualizarListaClientes();
+        } else {
+            alert("Erro ao excluir cliente.");
+        }
+    });
+}
 }
 
 
@@ -158,36 +158,36 @@ function editarProduto() {
     const valorUnitario = document.getElementById('valorProduto').value;
     const quantidade = document.getElementById('quantidadeProduto').value;
 
-    fetch(`http://localhost:8080/produtos/${id}`, {
-        method: 'PUT',
+    fetch(http://localhost:8080/produtos/${id}, {
+    method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome, valorUnitario, quantidade }),
-    }).then(response => {
-        if (response.ok) {
-            alert("Produto atualizado com sucesso!");
-            atualizarListaProdutos();
-        } else {
-            alert("Erro ao atualizar produto.");
-        }
-    });
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ nome, valorUnitario, quantidade }),
+}).then(response => {
+    if (response.ok) {
+        alert("Produto atualizado com sucesso!");
+        atualizarListaProdutos();
+    } else {
+        alert("Erro ao atualizar produto.");
+    }
+});
 }
 
 // Função para excluir produto
 function excluirProduto(id) {
     if (confirm("Tem certeza que deseja excluir este produto?")) {
-        fetch(`http://localhost:8080/produtos/${id}`, {
-            method: 'DELETE',
-        }).then(response => {
-            if (response.ok) {
-                alert("Produto excluído com sucesso!");
-                atualizarListaProdutos();
-            } else {
-                alert("Erro ao excluir produto.");
-            }
-        });
-    }
+        fetch(http://localhost:8080/produtos/${id}, {
+        method: 'DELETE',
+    }).then(response => {
+        if (response.ok) {
+            alert("Produto excluído com sucesso!");
+            atualizarListaProdutos();
+        } else {
+            alert("Erro ao excluir produto.");
+        }
+    });
+}
 }
 
 // Função para listar produtos
@@ -224,7 +224,7 @@ async function adicionarVenda() {
     const quantidade = document.getElementById('quantidadeVenda').value;
 
     const venda = {
-        cliente: { id: clienteId }, 
+        cliente: { id: clienteId },
         produto: { id: produtoId },
         formaPagamento,
         quantidade,
@@ -252,8 +252,8 @@ let vendaEdicaoId = null;
 function editarVenda(id) {
     vendaEdicaoId = id; // Guarda o ID da venda a ser editada
 
-    fetch(`http://localhost:8080/vendas/${id}`)
-        .then(response => response.json())
+    fetch(http://localhost:8080/vendas/${id})
+.then(response => response.json())
         .then(venda => {
             document.getElementById('clienteVenda').value = venda.cliente.id;
             document.getElementById('produtoVenda').value = venda.produto.id;
@@ -309,17 +309,17 @@ function atualizarListaVendas() {
 
 function excluirVenda(id) {
     if (confirm("Tem certeza que deseja excluir esta venda?")) {
-        fetch(`http://localhost:8080/vendas/${id}`, {
-            method: 'DELETE',
-        }).then(response => {
-            if (response.ok) {
-                alert("Venda excluída com sucesso!");
-                atualizarListaVendas();
-            } else {
-                alert("Erro ao excluir cliente.");
-            }
-        });
-    }
+        fetch(http://localhost:8080/vendas/${id}, {
+        method: 'DELETE',
+    }).then(response => {
+        if (response.ok) {
+            alert("Venda excluída com sucesso!");
+            atualizarListaVendas();
+        } else {
+            alert("Erro ao excluir cliente.");
+        }
+    });
+}
 }
 
 function mostrarSecao(secaoId) {
