@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/vendas")
@@ -22,6 +23,12 @@ public class VendaController {
     public ResponseEntity<List<Venda>> listarVendas() {
         return ResponseEntity.ok(vendaService.listarVendas());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Venda>> buscarVendaPorId(@PathVariable Long id) { return ResponseEntity.ok(vendaService.getVenda(id));}
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Venda> atualizarVenda(@RequestBody Venda venda) {return ResponseEntity.ok(vendaService.atualizarVenda(venda));}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarVenda(@PathVariable Long id) {
