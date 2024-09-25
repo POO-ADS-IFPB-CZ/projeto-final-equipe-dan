@@ -21,7 +21,7 @@
 </header>
 
 <main>
-    <div id="loginSection" style="display: none">
+    <div id="loginSection" style="display: block">
         <h2>Login</h2>
         <form id="loginForm" onsubmit="login(event)">
             <label for="loginUsuario">Login:</label>
@@ -32,7 +32,7 @@
         </form>
     </div>
 
-    <div id="mainContent" style="display: block;">
+    <div id="mainContent" style="display: none;">
         <section id="clientes" class="section">
             <h2>Gerenciamento de Clientes</h2>
             <button onclick="toggleClienteForm()">
@@ -50,10 +50,10 @@
                     <i class="fa fa-edit"></i> Editar Cliente
                 </button>
             </div>
-            <div id="listaClientes"></div>
+            <div id="listaClientes" class="list-container"></div>
         </section>
 
-        <section id="produtos" class="section" style="display:block;">
+        <section id="produtos" class="section" style="display:none;">
             <h2>Gerenciamento de Produtos</h2>
             <button onclick="toggleProdutoForm()">
                 <i class="fa fa-plus-square"></i> Adicionar Produto
@@ -72,10 +72,10 @@
                     <i class="fa fa-edit"></i> Editar Produto
                 </button>
             </div>
-            <div id="listaProdutos"></div>
+            <div id="listaProdutos" class="list-container"></div>
         </section>
 
-        <section id="vendas" class="section">
+        <section id="vendas" class="section" style="display: none;">
             <h2>Gerenciamento de Vendas</h2>
             <button type="button" onclick="toggleVendaForm()">
                 <i class="fa fa-cart-plus"></i> Adicionar Venda
@@ -102,9 +102,10 @@
                     </button>
                 </form>
             </div>
+            <div id="listaVendas" ></div>
         </section>
 
-        <div id="listaVendas"></div>
+
 
     </div>
 </main>
