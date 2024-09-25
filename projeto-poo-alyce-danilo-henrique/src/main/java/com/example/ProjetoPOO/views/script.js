@@ -5,7 +5,7 @@ async function login(event) {
     const senha = document.getElementById('senhaUsuario').value;
 
     try {
-        const response = await fetch('http://localhost:8080/api/login', {
+        const response = await fetch(`http://localhost:8080/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function adicionarCliente() {
     const nome = document.getElementById('nomeCliente').value;
     const cpf = document.getElementById('cpfCliente').value;
 
-    fetch('http://localhost:8080/clientes', {
+    fetch(`http://localhost:8080/clientes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ function editarCliente() {
     const nome = document.getElementById('nomeCliente').value;
     const cpf = document.getElementById('cpfCliente').value;
 
-    fetch(http://localhost:8080/clientes/${id}, {
+    fetch( `http://localhost:8080/clientes/${id}` , {
     method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ function editarCliente() {
 // Função para excluir cliente
 function excluirCliente(id) {
     if (confirm("Tem certeza que deseja excluir este cliente?")) {
-        fetch(http://localhost:8080/clientes/${id}, {
+        fetch( `http://localhost:8080/clientes/${id}` , {
         method: 'DELETE',
     }).then(response => {
         if (response.ok) {
@@ -107,7 +107,7 @@ function excluirCliente(id) {
 
 // Função para listar clientes
 function atualizarListaClientes() {
-    fetch('http://localhost:8080/clientes')
+    fetch(`http://localhost:8080/clientes`)
         .then(response => response.json())
         .then(clientes => {
             const listaClientes = document.getElementById('listaClientes');
@@ -135,7 +135,7 @@ function adicionarProduto() {
     const valorUnitario = document.getElementById('valorProduto').value;
     const quantidade = document.getElementById('quantidadeProduto').value;
 
-    fetch('http://localhost:8080/produtos', {
+    fetch(`http://localhost:8080/produtos`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ function editarProduto() {
     const valorUnitario = document.getElementById('valorProduto').value;
     const quantidade = document.getElementById('quantidadeProduto').value;
 
-    fetch(http://localhost:8080/produtos/${id}, {
+    fetch(`http://localhost:8080/produtos/${id}`, {
     method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -177,7 +177,7 @@ function editarProduto() {
 // Função para excluir produto
 function excluirProduto(id) {
     if (confirm("Tem certeza que deseja excluir este produto?")) {
-        fetch(http://localhost:8080/produtos/${id}, {
+        fetch(`http://localhost:8080/produtos/${id}`, {
         method: 'DELETE',
     }).then(response => {
         if (response.ok) {
@@ -192,7 +192,7 @@ function excluirProduto(id) {
 
 // Função para listar produtos
 function atualizarListaProdutos() {
-    fetch('http://localhost:8080/produtos')
+    fetch(`http://localhost:8080/produtos`)
         .then(response => response.json())
         .then(produtos => {
             const listaProdutos = document.getElementById('listaProdutos');
@@ -221,48 +221,67 @@ async function adicionarVenda() {
     const clienteId = document.getElementById('clienteVenda').value;
     const produtoId = document.getElementById('produtoVenda').value;
     const formaPagamento = document.getElementById('formaPagamento').value;
-    const quantidade = document.getElementById('quantidadeVenda').value;
 
+
+    // Criando o objeto venda
     const venda = {
         cliente: { id: clienteId },
         produto: { id: produtoId },
         formaPagamento,
-        quantidade,
+
     };
 
-    fetch('http://localhost:8080/vendas', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(venda),
-    }).then(response => {
+    let url = `http://localhost:8080/vendas`;
+    let method = 'POST';
+
+    // Verifica se estamos editando (vendaEdicaoId não nulo)
+    if (vendaEdicaoId) {
+        url += `/${vendaEdicaoId}`; // Adiciona o ID da venda na URL
+        method = 'PUT';
+        venda.id = vendaEdicaoId; // Inclui o ID da venda no corpo da requisição
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(venda),
+        });
+
         if (response.ok) {
-            alert("Venda cadastrada com sucesso!");
+            alert(vendaEdicaoId ? "Venda atualizada com sucesso!" : "Venda cadastrada com sucesso!");
             atualizarListaVendas();
-            esconderFormularioVenda();
+            cancelarVenda(); // Limpar o formulário e resetar vendaEdicaoId
         } else {
-            alert("Erro ao cadastrar venda.");
+            alert(vendaEdicaoId ? "Erro ao atualizar venda." : "Erro ao cadastrar venda.");
         }
-    });
+    } catch (error) {
+        console.error("Erro ao salvar a venda:", error);
+        alert("Ocorreu um erro ao salvar a venda.");
+    }
 }
+
 
 let vendaEdicaoId = null;
 
 function editarVenda(id) {
     vendaEdicaoId = id; // Guarda o ID da venda a ser editada
 
-    fetch(http://localhost:8080/vendas/${id})
-.then(response => response.json())
+    fetch(`http://localhost:8080/vendas/${id}`)
+        .then(response => response.json())
         .then(venda => {
             document.getElementById('clienteVenda').value = venda.cliente.id;
             document.getElementById('produtoVenda').value = venda.produto.id;
             document.getElementById('formaPagamento').value = venda.formaPagamento;
-            document.getElementById('quantidadeVenda').value = venda.quantidade;
 
-            toggleVendaForm(); // Mostra o formulário
+
+            toggleVendaForm(); // Mostra o formulário de edição
         });
 }
+
+
 
 
 
@@ -272,12 +291,12 @@ function cancelarVenda() {
     document.getElementById('clienteVenda').value = '';
     document.getElementById('produtoVenda').value = '';
     document.getElementById('formaPagamento').value = '';
-    document.getElementById('quantidadeVenda').value = '';
+
 }
 
 // Função para listar vendas
 function atualizarListaVendas() {
-    fetch('http://localhost:8080/vendas')
+    fetch(`http://localhost:8080/vendas`)
         .then(response => response.json())
         .then(vendas => {
             const listaVendas = document.getElementById('listaVendas');
@@ -294,7 +313,6 @@ function atualizarListaVendas() {
                     <p><strong>Cliente ID:</strong> ${venda.cliente.id} (${clienteNome})</p>
                     <p><strong>Produto ID:</strong> ${venda.produto.id} (${produtoNome})</p>
                     <p><strong>Forma de Pagamento:</strong> ${venda.formaPagamento || 'N/A'}</p>
-                    <p><strong>Quantidade:</strong> ${venda.quantidade || 'N/A'}</p>
                     <button onclick="editarVenda(${venda.id})">
                         <i class="fa fa-edit"></i> Editar
                     </button>
@@ -309,7 +327,7 @@ function atualizarListaVendas() {
 
 function excluirVenda(id) {
     if (confirm("Tem certeza que deseja excluir esta venda?")) {
-        fetch(http://localhost:8080/vendas/${id}, {
+        fetch(`http://localhost:8080/vendas/${id}`, {
         method: 'DELETE',
     }).then(response => {
         if (response.ok) {
